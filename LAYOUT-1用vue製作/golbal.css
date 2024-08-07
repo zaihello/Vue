@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    margin: 0 ;
+    padding: 0;  
+}
+/* *沒有包含虛擬元素，所加上去 */
+*::before,*::after{
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+img {
+    width: 100%;
+    display: block;/*讓圖片跟區塊重疊*/
+}

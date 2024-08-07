@@ -1,0 +1,276 @@
+html { 
+    scroll-behavior: smooth;/*捲動行為:平滑；只能設定在html上*/
+}
+nav{
+    width: 100%;
+    background-color: rgba(169, 169, 169, 0.322);
+    padding: 15px 15px; 
+    
+    backdrop-filter: blur(8px);
+    
+    position:fixed;
+    z-index: 9999;
+}
+.container{
+    width: 1200px;
+    margin-inline: auto;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-wrap: wrap;
+}
+.nav-menu{
+    margin-left: auto;
+    display: flex;
+    gap:5px;/*gap只有在flex上才有用，左右5px*/
+}
+.nav-link{
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+
+    transition: 600ms;/* transition要加在原始狀態 */ 
+    border-radius: 5px; 
+}
+.nav-link:hover{
+    background-color: #333;
+    color: aliceblue;
+}
+.nav-logo{
+    text-decoration: none;
+    color: black;
+}
+header{
+    width: 100%;
+    /* height: 600px; */
+    aspect-ratio: 16 / 9;/*設定圖片比例*/
+    background-color: aquamarine;
+    position: relative;
+}
+h1{
+    opacity: 0;/*原本是0*/
+    font-size: 6rem;
+    animation: fadeIn 500ms 500ms forwards;
+}
+header img{
+    height: 100%;/*上面600px沒填滿，這設100%*/
+    object-fit: cover;/*圖片等比例*/
+}
+.header-caption{
+    position: absolute;
+    width: 450px;
+    height: fit-content;/*符合內容*/
+    background-color:rgba(240, 248, 255, 0.37);
+    backdrop-filter: blur(4px);/*圖片濾鏡:模糊*/
+    color: black;
+    inset:0;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+
+    animation: fadeIn 500ms;
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.header-caption p{
+    opacity: 0;/*原本是0*/
+    margin-bottom: 20px;
+    animation: fadeIn 500ms 1000ms forwards;/*forwards讓他停在終點而不是到原本opacity: 0*/
+}
+.header-caption .btn-red{
+    opacity: 0;
+    animation: fadeIn 500ms 1500ms forwards;
+}
+/*共同*/
+.btn{
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(5, 5, 5);
+    background-color: rgb(175, 175, 177);
+    padding: 8px 30px;
+    border-radius: 5px;
+    border: 0;
+    font-size: 16px;
+    cursor: pointer;/*游標:手指*/
+}
+.btn-blue{
+  color: azure;
+  background-color: #5d00ff;
+  transition: 300ms;/* transition要加在原始狀態 */  
+}
+.btn-blue:hover{
+    background-color: #4309a7; 
+}
+.btn-red{
+    color: azure;
+    background-color: rgb(216, 80, 91);
+    transition: 300ms;/* transition要加在原始狀態 */   
+}
+.btn-red:hover{
+    background-color: rgb(143, 54, 61);  
+}
+#about{
+    padding-block: 150px;/*上下150px*/
+}
+.about-img{
+    width: 60%;
+    padding: 30px;
+}
+.about-img img{
+    border-radius: 15px;
+    box-shadow: 
+        /* -10px 10px 0px 0px #5ddfff,
+        -20px 20px 0px 0px #ff5d, */
+        0px 0px 0px 0px #5d00ff;
+        /* box-shadow: x y strength(模糊強度) extened(擴散) color */
+        transition:400ms 400ms;  
+}
+.about-img:hover img{
+    box-shadow: -30px 30px 0px 0px #5d00ff;;
+}
+.about-content{
+    width: 40%;
+    padding: 30px;
+}
+.about-content li{
+    list-style-position: inside;/*項目符號在裡面*/
+}
+.about-content h2{
+    font-size: 3rem;
+    text-shadow: 2px 2px 0px #ff625d;
+    color: black;
+}
+.about-content p{
+    margin-block: 30px;/*上下30px*/
+    line-height: 1.5rem;
+}
+.about-img-inner{
+    position: relative;
+}
+.about-img-inner::after{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 9;
+    background-color: rgba(19, 19, 19, 0.253);
+    top: 0;
+    right: 0;
+    border-radius: 50%;  
+    opacity: 0;
+    transition:400ms 600ms;  
+}
+.about-img:hover .about-img-inner::after{
+    opacity: 1;
+    top:-80px;
+    right: -90px;
+} 
+/* .about-img-inner::after{
+    content: '';
+    display: block;
+    border: 5px solid #fa0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    top:30px;
+    left:-30px;
+} */
+.about-img-inner::before{
+    content: '';
+    display: block;
+    border: 5px solid transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    top:0px;
+    left:0px;
+    transition:400ms;   
+}
+.about-img:hover .about-img-inner::before{
+    top:-30px;
+    left:30px;
+    border: 5px solid rgb(27, 163, 134);
+} 
+/* folio */
+#folio{
+    padding-block: 150px;
+    background-color:rgb(243, 243, 238);
+}
+#folio h2{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 3rem;
+}
+@keyframes imgIn{
+    from{
+        opacity: 0;
+        scale: .7;
+        rotate: 180deg;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+        rotate: 0deg;
+    }
+}
+.folio-col{
+    width: 300px;
+
+    animation: imgIn linear;
+    animation-timeline: view();
+    animation-range: 0 50%;
+}
+#contact{
+    padding-block: 150px;
+}
+#contact h2{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 3rem;
+}
+#contact .container{
+    justify-content: center;
+}
+.contact-col {
+    width: 600px; 
+}
+.form-control{
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #333;/*框線本身色不均*/
+    outline: 0;/*點擊內框*/
+
+    transition: 500ms;
+    caret-color:#c5253a;/*游標顏色*/
+    accent-color:#c5253a;/*選填顏色*/
+}
+.form-control:focus{/*focus點擊*/
+    border: 1px solid #c5253a;
+    background-color: lightcoral;
+    padding: 15px;
+}
+.form-group{
+    margin-bottom: 25px;
+}
+.form-label{
+    display: block;/*label是行內元素上下不能使用，轉區塊才能margin-bottom*/
+    margin-bottom: 5px;
+}
+
+footer{
+    padding: 20px;
+    background-color: black;
+    color: ivory;
+    text-align: center;
+}
+
